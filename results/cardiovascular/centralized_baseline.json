@@ -1,0 +1,79 @@
+{
+  "experiment": "cardiovascular_centralized_logistic_regression",
+  "target": "cardio",
+  "split": {
+    "train_rows": 54892,
+    "test_rows": 13724,
+    "source": "Existing stratified 80/20 split from preprocessing notebook (random_state=42)"
+  },
+  "features": [
+    "age",
+    "gender",
+    "height",
+    "weight",
+    "ap_hi",
+    "ap_lo",
+    "cholesterol",
+    "gluc",
+    "smoke",
+    "alco",
+    "active"
+  ],
+  "preprocessing": "Uses provided processed CSVs. Notebook fits StandardScaler on training data, then transforms test data.",
+  "model": {
+    "name": "LogisticRegression",
+    "max_iter": 2000,
+    "random_state": 42,
+    "decision_threshold": 0.5,
+    "threshold": 0.5
+  },
+  "metrics": {
+    "accuracy": 0.7274846983386768,
+    "precision": 0.7523573200992556,
+    "recall": 0.669709910175232,
+    "f1": 0.7086319725771268,
+    "roc_auc": 0.7912234532587749,
+    "confusion_matrix_labels_0_1": [
+      [
+        5436,
+        1497
+      ],
+      [
+        2243,
+        4548
+      ]
+    ]
+  },
+  "classification_report": {
+    "no cardiovascular disease (0)": {
+      "precision": 0.7079046750879021,
+      "recall": 0.7840761575075724,
+      "f1-score": 0.744045989597591,
+      "support": 6933.0
+    },
+    "cardiovascular disease (1)": {
+      "precision": 0.7523573200992556,
+      "recall": 0.669709910175232,
+      "f1-score": 0.7086319725771268,
+      "support": 6791.0
+    },
+    "accuracy": 0.7274846983386768,
+    "macro avg": {
+      "precision": 0.7301309975935788,
+      "recall": 0.7268930338414021,
+      "f1-score": 0.726338981087359,
+      "support": 13724.0
+    },
+    "weighted avg": {
+      "precision": 0.7299010254429081,
+      "recall": 0.7274846983386768,
+      "f1-score": 0.7265221926297994,
+      "support": 13724.0
+    }
+  },
+  "limitations": [
+    "This is a centralized baseline on the provided processed dataset.",
+    "The dataset is not hospital-partitioned; this result does not measure federated learning or cross-hospital generalization."
+  ],
+  "dataset": "Processed cardiovascular dataset"
+}

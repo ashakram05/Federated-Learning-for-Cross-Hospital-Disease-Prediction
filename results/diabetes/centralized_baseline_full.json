@@ -1,0 +1,89 @@
+{
+  "experiment": "diabetes_centralized_logistic_regression",
+  "dataset": "Diabetes health indicators dataset",
+  "feature_representation": "full",
+  "target": "Diabetes_binary",
+  "split": {
+    "train_rows": 183579,
+    "test_rows": 45895,
+    "source": "Existing stratified 80/20 split from preprocessing notebook (random_state=42)"
+  },
+  "features": [
+    "HighBP",
+    "HighChol",
+    "CholCheck",
+    "BMI",
+    "Smoker",
+    "Stroke",
+    "HeartDiseaseorAttack",
+    "PhysActivity",
+    "Fruits",
+    "Veggies",
+    "HvyAlcoholConsump",
+    "AnyHealthcare",
+    "NoDocbcCost",
+    "GenHlth",
+    "MentHlth",
+    "PhysHlth",
+    "DiffWalk",
+    "Sex",
+    "Age",
+    "Education",
+    "Income"
+  ],
+  "preprocessing": "Uses provided processed CSVs. Continuous features were scaled by the preprocessing notebook using training data only.",
+  "model": {
+    "name": "LogisticRegression",
+    "max_iter": 2000,
+    "random_state": 42,
+    "decision_threshold": 0.5
+  },
+  "metrics": {
+    "accuracy": 0.8519446562806406,
+    "precision": 0.5546341463414635,
+    "recall": 0.16198888730588404,
+    "f1": 0.2507442937479325,
+    "roc_auc": 0.8113172903275004,
+    "confusion_matrix_labels_0_1": [
+      [
+        37963,
+        913
+      ],
+      [
+        5882,
+        1137
+      ]
+    ]
+  },
+  "classification_report": {
+    "no diabetes (0)": {
+      "precision": 0.865845592427871,
+      "recall": 0.9765150735672394,
+      "f1-score": 0.9178564088925424,
+      "support": 38876.0
+    },
+    "diabetes (1)": {
+      "precision": 0.5546341463414635,
+      "recall": 0.16198888730588404,
+      "f1-score": 0.2507442937479325,
+      "support": 7019.0
+    },
+    "accuracy": 0.8519446562806406,
+    "macro avg": {
+      "precision": 0.7102398693846672,
+      "recall": 0.5692519804365618,
+      "f1-score": 0.5843003513202374,
+      "support": 45895.0
+    },
+    "weighted avg": {
+      "precision": 0.8182501432486469,
+      "recall": 0.8519446562806406,
+      "f1-score": 0.8158309173095808,
+      "support": 45895.0
+    }
+  },
+  "limitations": [
+    "This is a centralized baseline on the provided processed dataset.",
+    "The dataset is not hospital-partitioned; this result does not measure federated learning or cross-hospital generalization."
+  ]
+}

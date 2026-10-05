@@ -1,0 +1,23 @@
+﻿# Python and Jupyter
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Environments and local configuration
+.venv/
+venv/
+env/
+.env
+
+# Logs and operating system files
+*.log
+.DS_Store
+Thumbs.db
+
+# Notebook and exploratory outputs
+eda_outputs/
+processed_data/
+
+# Raw/private source data; processed research CSVs remain tracked
+/data/raw/*
+/data/diabetes/raw/*

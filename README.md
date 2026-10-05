@@ -93,7 +93,7 @@ Current work includes:
 * Target variable preparation
 * Preparation of datasets for subsequent machine learning experiments
 
-> The repository will be updated progressively as each research and development stage is completed.
+> Centralized baselines are now available for cardiovascular data and both diabetes feature representations. The diabetes `full` and `reduced` files are two representations of the same dataset.
 
 ---
 
@@ -136,6 +136,8 @@ Prediction Interface
 ```
 
 ---
+
+`carefl_prototype.html` is a demonstration prototype, not the implemented machine-learning or federated-learning system.
 
 ## 🏥 Federated Learning Concept
 
@@ -243,50 +245,47 @@ Federated models will also be compared with centralized baseline models to inves
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
-The repository is being developed progressively alongside the research.
+The repository is organized around the current preprocessing and centralized baseline work. Non-IID partitions and federated training remain future work.
 
 ```text
-federated-disease-prediction/
-│
-├── data/
-│   ├── raw/
-│   └── processed/
-│
-├── notebooks/
-│   └── data-preprocessing/
-│
-├── src/
-│   ├── data/
-│   ├── models/
-│   ├── federated/
-│   ├── privacy/
-│   └── evaluation/
-│
-├── experiments/
-│
-├── results/
-│
-├── docs/
-│
-├── README.md
-├── requirements.txt
-└── .gitignore
+README.md
+requirements.txt
+.gitignore
+data/
+  processed/
+    cardiovascular/  # train.csv, test.csv
+    diabetes/        # full/reduced train and test representations
+  federated/         # reserved empty hospital partition folders
+notebooks/
+  cardiovascular/01_preprocessing.ipynb
+  diabetes/01_preprocessing.ipynb
+scripts/
+  cardio_baseline.py
+  diabetes_baseline.py
+results/
+  cardiovascular/centralized_baseline.json
+  diabetes/
+    centralized_baseline_full.json
+    centralized_baseline_reduced.json
+docs/FYP_Proposal_Federated_Learning (4).docx
+carefl_prototype.html
+federated/            # reserved for future implementation
 ```
 
 ---
 
 ## 🚧 Project Status
 
-**Current Stage: Data Preprocessing**
+**Current Stage: Preprocessing and centralized baselines**
 
 The project is currently in the initial research and data preparation phase.
 
 Future stages will include:
 
 * [ ] Exploratory Data Analysis
-* [ ] Centralized baseline models
+* [x] Centralized baseline models
 * [ ] Client/hospital simulation
 * [ ] Non-IID data partitioning
 * [ ] Federated Learning implementation
@@ -298,6 +297,8 @@ Future stages will include:
 * [ ] Experimental analysis and documentation
 
 ---
+
+Run the centralized baselines from the repository root with `python scripts/cardio_baseline.py` and `python scripts/diabetes_baseline.py`. The diabetes script evaluates both feature representations and writes separate JSON results under `results/diabetes/`.
 
 ## 📚 Research Direction
 
